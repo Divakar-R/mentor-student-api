@@ -1,12 +1,12 @@
-// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
 require("dotenv").config();
 
 const app = express();
-app.use(express.json());
+app.use(express.json()); // Middleware to parse JSON
 
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("Connected to MongoDB"))
